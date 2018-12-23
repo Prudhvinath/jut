@@ -23,6 +23,7 @@ stages {
                 steps {
                   
                   archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+				  echo 'success'
                   }
                 }
           stage('Test') {
@@ -31,7 +32,7 @@ stages {
                 * using `true` to allow the Pipeline to continue nonetheless
                 */
                  
-                junit '**/target/*.xml' 
+                junit '**/target/surefire-reports/*.xml' 
                 }
             }
             
